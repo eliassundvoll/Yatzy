@@ -231,3 +231,5 @@ if __name__ == '__main__':
         printPlayerScorePlayer1(player1, units)
 
     print ("Your final score is: " + player1[17])
+
+#Hei Thomas :)
