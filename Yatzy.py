@@ -1,11 +1,9 @@
 import random
-import tkinter
 
 
 def roll_dice(dice_number):
     dice_number = random.randint(1,6)
     return dice_number
-
 
 
 def roll(roll_dice, dices):
@@ -30,29 +28,36 @@ def roll(roll_dice, dices):
         dices[i] = roll_dice(dices[i])
     print ("Final roll: " + str(dices))
 
+
 def one(dices):
     points = dices.count(1)*1
     return points
+
 
 def two(dices):
     points = dices.count(2)*2
     return points
 
+
 def three(dices):
     points = dices.count(3)*3
     return points
+
 
 def four(dices):
     points = dices.count(4)*4
     return points
 
+
 def five(dices):
     points = dices.count(5)*5
     return points
 
+
 def six(dices):
     points = dices.count(6)*6
     return points
+
 
 def one_pair(dices):
     dices2 = sorted(dices)
@@ -62,6 +67,7 @@ def one_pair(dices):
             return points
     points = 0
     return points
+
 
 def two_pair(dices):
     dices2 = sorted(dices)
@@ -81,6 +87,7 @@ def two_pair(dices):
     points = 0
     return points
 
+
 def three_of_a_kind(dices):
     dices2 = sorted(dices)
     for i in range (0, 3):
@@ -89,6 +96,7 @@ def three_of_a_kind(dices):
             return points
     points = 0
     return points
+
 
 def four_of_a_kind(dices):
     dices2 = sorted(dices)
@@ -99,6 +107,7 @@ def four_of_a_kind(dices):
     points = 0
     return points
 
+
 def small_stright(dices):
     dices2 = sorted(dices)
     if dices2[0] == 1 and dices2[1] == 2 and dices2[2] == 3 and dices2[3] == 4 and dices2[4] == 5:
@@ -106,6 +115,7 @@ def small_stright(dices):
         return points
     points = 0
     return points
+
 
 def large_stright(dices):
     dices2 = sorted(dices)
@@ -115,6 +125,7 @@ def large_stright(dices):
     points = 0
     return points
 
+
 def house(dices):
     dices2 = sorted(dices)
     if (dices2[0] and dices2[1] == dices2[2]) and (dices2[3] == dices2[4]) or (dices2[0] == dices2[1]) and (dices2[2] and dices2[3] == dices2[4]):
@@ -123,9 +134,11 @@ def house(dices):
     points =0
     return points
 
+
 def chance(dices):
     points = sum(dices)
     return points
+
 
 def yatzy(dices):
     dices2 = sorted(dices)
@@ -134,7 +147,6 @@ def yatzy(dices):
         return points
     points = 0
     return points
-
 
 
 def printPlayerScorePlayer1(playerScore, units):
@@ -167,7 +179,11 @@ if __name__ == '__main__':
     dices = [0,0,0,0,0]
     player1 = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
     thisRollPoints = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-    units = ["one", "two", "three", "four", "five", "six", "sum1", "bonus", "one pair", "two pair", "three of a kind", "four of a kind", "small stright", "large stright", "house", "chance", "yatzy", "sum"]
+    units = [
+        "one", "two", "three", "four", "five", "six", "sum1", "bonus",
+        "one pair", "two pair", "three of a kind", "four of a kind",
+        "small stright", "large stright", "house", "chance", "yatzy", "sum"
+    ]
 
     for n in range(len(player1)-5):
         roll(roll_dice, dices)
@@ -187,7 +203,6 @@ if __name__ == '__main__':
         thisRollPoints[14] = house(dices)
         thisRollPoints[15] = chance(dices)
         thisRollPoints[16] = yatzy(dices)
-
 
         printThisRollPoints(units, thisRollPoints)
 
@@ -216,39 +231,3 @@ if __name__ == '__main__':
         printPlayerScorePlayer1(player1, units)
 
     print ("Your final score is: " + player1[17])
-
-
-
-
-
-
-    '''
-    #one
-    one_points = one(dices)
-    print ("1:  one gives: " + str(one_points) + " points")
-    #two
-    two_points = two(dices)
-    print ("2:  two gives: " + str(two_points) + " points")
-    #three
-    three_points = three(dices)
-    print ("3:  three gives: " + str(three_points) + " points")
-    #four
-    four_points = four(dices)
-    print ("4:  four gives: " + str(four_points) + " points")
-    #five
-    five_points = five(dices)
-    print ("5:  five gives: " + str(five_points) + " points")
-    #six
-    six_points = six(dices)
-    print ("6:  six gives: " + str(six_points) + " points")
-    #one pair
-    #two pair
-    #three of a kind
-    #four of a kind
-    #five of a kind
-    #small stright
-    #large stright
-    #house
-    #chance
-    #yatzy
-    '''
